@@ -12,7 +12,7 @@ In order to resolve this, we in this code, we are getting all the environment va
 
 Note that I might be wrong, may be there is a better/easier way to set pull environment variables for the Debug mode.
 
-## Usage 
+## How to Use envtofile
 
 ### Generating environment files 
 
@@ -26,11 +26,11 @@ envtofile -f=local.env -x=GOPATH,GOBIN,PATH,LS_COLORS
 - -f=local.env : File name which will store the environment variables
 - -x=GOPATH,GOBIN,PATH,LS_COLORS : Environment variables names to be excluded 
 
-### Using the environment files in your VsCode project 
+### Accessing to Env Variables in VS Code Debug Mode
 
 In order to pass the environment files in your project, you can follow this steps:
 
-1. [Debugging Go using VS Code](https://github.com/Microsoft/vscode-go/wiki/Debugging-Go-code-using-VS-Code) 
+1. Debugging GO using VS Code : https://github.com/Microsoft/vscode-go/wiki/Debugging-Go-code-using-VS-Code
 
 2. In your .vscode/launch.json, enter envFile property that points to the generated environment variables file.
   Sample launch.json file 
@@ -45,11 +45,7 @@ In order to pass the environment files in your project, you can follow this step
 			"request": "launch",
 			"mode": "auto",
 			"program": "${fileDirname}",
-            "envFile": "${workspaceRoot}/local.env",
-            "args": [
-                "ARG1=VALUE1",
-                "ARG2=VALUE2"
-            ]
+      "envFile": "${workspaceRoot}/local.env"
 		}
 	]
   } 
