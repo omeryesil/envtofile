@@ -1,7 +1,8 @@
 # envtofile
 
-Writes environment variables to a file in KEY=VALUE format. 
+A simple utility that writes environment variables to a file in KEY=VALUE format. 
 
+## Use Case
 Go extension for VS Code runs in a separete shell session, therefore, it does not get environment variables from VS Code terminal. A simple use case can be:
 
 1. You have a shell script to set environment variables for dev/local/test/ etc.. You need to run this script before running your go app
