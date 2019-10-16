@@ -18,7 +18,8 @@ Note that I might be wrong, may be there is a better/easier way to set pull envi
 This sample call will write the environment variables to local.env file 
 
 ```shell
-go run main.go -f=local.env -x=GOPATH,GOBIN,PATH,LS_COLORS
+go get github.com/omeryesil/envtofile
+envtofile -f=local.env -x=GOPATH,GOBIN,PATH,LS_COLORS
 ```
 
 - -f=local.env : File name which will store the environment variables
