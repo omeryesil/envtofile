@@ -39,8 +39,8 @@ func getCommandLineArguments(args []string) fields {
 		case "-x":
 			arguments.excludeVariables = (excludedEnvVars)(strings.Split(keyAndValue[1], ","))
 		case "--help":
-			fmt.Println("Sample usage: go run main.go -o=testfile -x=ENV1,ENV2")
-			fmt.Println("-o : Output file name")
+			fmt.Println("Sample usage: go run main.go -f=testfile -x=ENV1,ENV2")
+			fmt.Println("-f : Output file name")
 			fmt.Println("-x : Comma separeted environment names which will be excluded")
 		default:
 			log.Fatal("Undefined argument :", keyAndValue[0])
