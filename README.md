@@ -50,7 +50,8 @@ In order to pass the environment files in your project, you can follow this step
             ]
 		}
 	]
-  }  
+  } 
+  ``` 
 
   Now you should be able to select main.go, run debug (Debug>Start Debugging). This will pass all the environment variables defined in local.env file to your application 
 
