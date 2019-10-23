@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"sort"
 	"strings"
 )
 
@@ -46,7 +47,6 @@ func getCommandLineArguments(args []string) fields {
 			log.Fatal("Undefined argument :", keyAndValue[0])
 		}
 	}
-
 	return arguments
 }
 
@@ -56,13 +56,23 @@ func getCommandLineArguments(args []string) fields {
 func getEnvsInVsCodeFormat(excludes excludedEnvVars) envVars {
 	var variables envVars
 
+	lines := []string{}
+
 	for _, e := range os.Environ() {
 		pair := strings.SplitN(e, "=", 2)
 
 		if !excludes.Contains(pair[0]) {
-			variables += (envVars)(pair[0] + "=" + pair[1] + "\n")
+			lines = append(lines, pair[0]+"="+pair[1]+"\n")
+			//variables += (envVars)(pair[0] + "=" + pair[1] + "\n")
 		}
 	}
+
+	sort.Strings(lines)
+
+	for _, line := range lines {
+		variables += (envVars)(line)
+	}
+
 	return variables
 }
 
